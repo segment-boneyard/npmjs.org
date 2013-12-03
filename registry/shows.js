@@ -82,11 +82,11 @@ shows.package = function (doc, req) {
   //     }
   //   }
   // }
-  // if (doc["dist-tags"]) for (var tag in doc["dist-tags"]) {
-  //   var clean = semver.clean(doc["dist-tags"][tag], true)
-  //   if (!clean) delete doc["dist-tags"][tag]
-  //   else doc["dist-tags"][tag] = clean
-  // }
+  if (doc["dist-tags"]) for (var tag in doc["dist-tags"]) {
+    var clean = semver.clean(doc["dist-tags"][tag], true)
+    if (!clean) delete doc["dist-tags"][tag]
+    else doc["dist-tags"][tag] = clean
+  }
   // // end kludge
 
   if (req.query.version) {
